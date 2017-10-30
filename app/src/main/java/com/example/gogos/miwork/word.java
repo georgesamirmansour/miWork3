@@ -5,20 +5,23 @@ package com.example.gogos.miwork;
  */
 
 public class word {
+    private static final int noImageProvided = -1;
     private String englishWord;
     private String miWorkWord;
     private int imageResourceID = noImageProvided;
-    private static final int noImageProvided = -1;
+    private int audioResourceId;
 
-    public word(String englishWord, String miWorkWord, int imageResourceID) {
+    public word(String englishWord, String miWorkWord, int imageResourceID, int audioResourceId) {
         this.englishWord = englishWord;
         this.miWorkWord = miWorkWord;
         this.imageResourceID = imageResourceID;
+        this.audioResourceId = audioResourceId;
     }
 
-    public word(String englishWord, String miWorkWord) {
+    public word(String englishWord, String miWorkWord, int audioResourceId) {
         this.englishWord = englishWord;
         this.miWorkWord = miWorkWord;
+        this.audioResourceId = audioResourceId;
     }
 
     public String getEnglishWord() {
@@ -44,7 +47,16 @@ public class word {
     public void setImageResourceID(int imageResourceID) {
         this.imageResourceID = imageResourceID;
     }
-    public boolean hasImage(){
+
+    public int getAudioResourceId() {
+        return audioResourceId;
+    }
+
+    public void setAudioResourceId(int audioResourceId) {
+        this.audioResourceId = audioResourceId;
+    }
+
+    public boolean hasImage() {
         return imageResourceID != noImageProvided;
     }
 }
