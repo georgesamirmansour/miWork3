@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -46,6 +47,12 @@ public class FamilyActivity extends AppCompatActivity {
                 word word = words.get(position);
                 mediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(FamilyActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
